@@ -1,0 +1,48 @@
+@model IEnumerable<LoggerPLC.Models.Task>
+
+<h1></h1>
+<table class="table">
+<thead>
+    <tr>
+      <th scope="col">Nazwa zadania</th>
+      <th scope="col">IP PLC</th>
+      <th scope="col">Nazwa Taga</th>
+      <th scope="col">Interwał</th>
+      <th scope="col">Aktywne</th>
+      <th scope="col"></th>
+    </tr>
+</thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> 
+                @Html.DisplayFor(modelItem => item.TaskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IpPLC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TagName)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskInterval)
+            </td> 
+            <td> 
+                  @(item.IsActive==true?"TAK":"NIE")
+            </td> 
+            <td>
+                @Html.ActionLink("Usun", "Delete", new { id = item.TaskName }, new { @class = "btn btn-danger btn-medium" })
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.TaskName }, new { @class = "btn btn-warning btn-medium" })
+                @Html.ActionLink("Rysuj","Draw","Chart",new {id = item.TaskName}, new { @class = "btn btn-info btn-medium" }) 
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Dodaj nowe zadanie", "Create", new { id = " " }, new { @class = "btn btn-success btn-medium" })
+</p>
+
+

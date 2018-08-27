@@ -1,0 +1,73 @@
+@model LoggerPLC.Models.Task
+
+@using (Html.BeginForm()) 
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.TaskID)
+<br>
+<table class="table">
+<thead>
+    <tr>
+      <th scope="col">Nazwa zadania</th>
+      <th scope="col">Nazwa Taga</th>
+      <th scope="col">IP PLC</th> 
+      <th scope="col">Interwał</th>  
+      <th scope="col">Aktywne</th>
+    </tr>
+</thead>
+        <tr>
+            <td>
+                <div class="editor-field"> 
+                    @Html.EditorFor(model => model.TaskName, new { htmlAttributes = new { @class = "form-control",style = " max-width: 160px ; max-height: 28px" } })
+                    @Html.ValidationMessageFor(model => model.TaskName)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TagName, new { htmlAttributes = new { @class = "form-control",style = " max-width: 160px ; max-height: 28px" } })
+                    @Html.ValidationMessageFor(model => model.TagName)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.IpPLC, new { htmlAttributes = new { @class = "form-control",style = " max-width: 160px ; max-height: 28px" } })
+                    @Html.ValidationMessageFor(model => model.IpPLC)
+                </div>
+            </td> 
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TaskInterval, new { htmlAttributes = new { @class = "form-control",style = " max-width: 160px ; max-height: 28px" } })
+                    @Html.ValidationMessageFor(model => model.TaskInterval)
+                </div> 
+            </td>  
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control",style = " max-width: 160px ; max-height: 28px" } })
+                    @Html.ValidationMessageFor(model => model.IsActive)
+                </div> 
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <p>
+                    <input type="submit" value="Zapisz" class = "btn btn-info btn-medium"/>
+                </p> 
+            </td>
+        </tr>
+</table>    
+}
+
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+
