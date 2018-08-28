@@ -18,11 +18,12 @@ namespace LoggerPLC.Controllers
         }
         public IActionResult Index()
         {
+            var sassa  = repository;
              return View(repository.Tasks);
         }
 
         [HttpGet]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
             repository.DeleteTask(id);
             return RedirectToAction("Index");
@@ -35,9 +36,9 @@ namespace LoggerPLC.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(string id)
+        public IActionResult Edit(int id)
         {
-            return View(repository.Tasks.Where(p => p.TaskName == id).First());
+            return View(repository.Tasks.Where(p => p.TaskID == id).First());
         }
 
         [HttpPost]

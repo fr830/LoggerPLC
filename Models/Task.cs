@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LoggerPLC.Models
 {
@@ -8,7 +10,7 @@ namespace LoggerPLC.Models
         public int TaskID { get; set; }
 
         [Required(ErrorMessage = "Pole wymagane, podaj prawidłową nazwę zdarzenia")]
-        [RegularExpression("^[a-zA-Z0-9_.-]*$",ErrorMessage="Niedozwolony znak w nazwie")]
+        [RegularExpression("^[a-zA-Z0-9_.-]*$", ErrorMessage = "Niedozwolony znak w nazwie")]
         public string TaskName { get; set; }
 
         [Required(ErrorMessage = "Pole wymagane, podaj prwidłowe IP PLC, w formacie XXX.XXX.XXX.XXX")]
@@ -16,12 +18,11 @@ namespace LoggerPLC.Models
         public string IpPLC { get; set; }
 
         [Required(ErrorMessage = "Pole wymagane, podaj prawidłową nazwę taga")]
-        [RegularExpression("^[a-zA-Z0-9_.-]*$",ErrorMessage="Niedozwolony znak w nazwie")]
+        [RegularExpression("^[a-zA-Z0-9_.-]*$", ErrorMessage = "Niedozwolony znak w nazwie")]
         public string TagName { get; set; }
 
-        [Required(ErrorMessage = "Pole wymagane, podaj długość interwału")] 
+        [Required(ErrorMessage = "Pole wymagane, podaj długość interwału")]
         public int TaskInterval { get; set; }
-        
-        public bool IsActive {get;set;}
+        public bool IsActive { get; set; }
     }
 }

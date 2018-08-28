@@ -1,0 +1,40 @@
+@model IEnumerable<LoggerPLC.Models.Error> 
+
+
+<h1></h1>
+<table class="table">
+<thead>
+    <tr>
+      <th scope="col">Nazwa zadania</th>
+      <th scope="col">IP PLC</th>
+      <th scope="col">Nazwa Taga</th>
+      <th scope="col">Interwał</th>
+      <th scope="col">Opis</th>
+      <th scope="col"></th>
+    </tr>
+</thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> 
+                @Html.DisplayFor(modelItem => item.TaskID)
+            </td>
+            <td>
+               
+            </td>
+            <td>
+               
+            </td> 
+            <td>
+               
+            </td> 
+            <td> 
+                 @Html.DisplayFor(modelItem => item.Descryption)
+            </td> 
+            <td>
+                @Html.ActionLink("Usun", "Delete", new { id = item.ErrorID }, new { @class = "btn btn-danger btn-medium" })
+            </td>
+        </tr>
+    }
+</table>

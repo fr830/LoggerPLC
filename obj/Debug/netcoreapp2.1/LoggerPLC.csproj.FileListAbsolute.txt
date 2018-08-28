@@ -7,6 +7,8 @@ C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\LoggerPLC.AssemblyIn
 C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\LoggerPLC.TagHelpers.input.cache
 C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\LoggerPLC.TagHelpers.output.cache
 C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\LoggerPLC.RazorCoreGenerate.cache
+C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\Razor\Views\Chart\Draw.g.cshtml.cs
+C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\Razor\Views\Error\Index.g.cshtml.cs
 C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
 C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
@@ -29,4 +31,3 @@ C:\Users\Admin\Desktop\C#\LoggerPLC\bin\Debug\netcoreapp2.1\LoggerPLC.Views.dll
 C:\Users\Admin\Desktop\C#\LoggerPLC\bin\Debug\netcoreapp2.1\LoggerPLC.Views.pdb
 C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\LoggerPLC.Views.pdb
 C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\LoggerPLC.csproj.CopyComplete
-C:\Users\Admin\Desktop\C#\LoggerPLC\obj\Debug\netcoreapp2.1\Razor\Views\Chart\Draw.g.cshtml.cs

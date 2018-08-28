@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LoggerPLC.Models
@@ -8,8 +9,9 @@ namespace LoggerPLC.Models
         IQueryable<Error> Errors { get; }
         IQueryable<Task> Tasks { get; }
 
-        void DeleteTask(string id);
+        void DeleteTask(int id);
         void CreateTask(Task task);
         void EditTask(Task task);
+        void DeleteError(int id);
     }
 }

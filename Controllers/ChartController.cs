@@ -19,50 +19,15 @@ namespace LoggerPLC.Controllers
         {
             repository = repo;
         }
-        
-        [HttpPost]
-        public IActionResult Draw(ViewModelPageChart vc)
+
+        public IActionResult Draw(int id)
         {
-            string selectedItem = vc.SelectedItem;
-            List<SelectListItem> listItems = new List<SelectListItem>();
+            Highcharts Chart = new Highcharts();
+            var ddd =repository.Datas.Where(p => p.TaskID == id).ToList();
+            ;
 
-            foreach (LoggerPLC.Models.Task t in repository.Tasks)
-            {
-                listItems.Add(new SelectListItem
-                {
-                    Text = t.TaskName,
-                    Value = t.TaskName
-                });
-            }
 
-            ViewModelPageChart viewChart = new ViewModelPageChart();
-            var ff = repository.Datas.Where(p => p.Task.TaskName == selectedItem).ToList();
-            viewChart.Chart = viewChart.Chart.DrawChart(repository.Datas.Where(p => p.Task.TaskName == selectedItem).ToList(), selectedItem, "", "Value");
-
-            viewChart.ListItems = listItems;
-            return View(viewChart);
-        }
-
-        [HttpGet]
-        public IActionResult Draw(string id)
-        {
-            var tasks = repository.Tasks.ToList();
-            List<SelectListItem> listItems = new List<SelectListItem>();
-
-            foreach (LoggerPLC.Models.Task t in repository.Tasks)
-            {
-                listItems.Add(new SelectListItem
-                {
-                    Text = t.TaskName,
-                    Value = t.TaskName
-                });
-            }
-
-            var ff = repository.Datas.Where(p => p.Task.TaskName == id).ToList();
-            ViewModelPageChart viewChart = new ViewModelPageChart();
-            viewChart.Chart = viewChart.Chart.DrawChart(repository.Datas.Where(p => p.Task.TaskName == id).ToList(), id, "", "Value");
-            viewChart.ListItems = listItems;
-            return View(viewChart);
+            return View(Chart.DrawChart(repository.Datas.Where(p => p.TaskID == id).ToList(), "Tytuł wykresu", "", "Value"));
         }
 
 

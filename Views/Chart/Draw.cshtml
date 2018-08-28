@@ -5,21 +5,7 @@
 
 
 @using Highsoft.Web.Mvc.Charts
-@model LoggerPLC.Models.ViewModelPageChart
+@model Highsoft.Web.Mvc.Charts.Highcharts
 
 
-klkkl
-
-
-@(Html.Highsoft().GetHighcharts(@Model.Chart, "chart"))
-
-
-@using(Html.BeginForm())
-{  
-    @(Html.DropDownListFor(m=>m.SelectedItem , Model.ListItems, "Wybierz TAG"))
-    <input type="submit" value="Rysuj wykres" class = "btn btn-info btn-medium"/>  
-}
-
-
-dsadsdasdasdasda
-
+@(Html.Highsoft().GetHighcharts(@Model, "chart"))

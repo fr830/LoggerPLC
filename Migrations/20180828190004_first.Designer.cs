@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoggerPLC.Migrations
 {
     [DbContext(typeof(LoggerPLCDbContext))]
-    [Migration("20180827133331_Init")]
-    partial class Init
+    [Migration("20180828190004_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,13 +26,11 @@ namespace LoggerPLC.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int?>("TaskID");
+                    b.Property<int>("TaskID");
 
                     b.Property<int>("Value");
 
                     b.HasKey("DataID");
-
-                    b.HasIndex("TaskID");
 
                     b.ToTable("Datas");
                 });
@@ -44,11 +42,9 @@ namespace LoggerPLC.Migrations
 
                     b.Property<string>("Descryption");
 
-                    b.Property<int?>("TaskID");
+                    b.Property<int>("TaskID");
 
                     b.HasKey("ErrorID");
-
-                    b.HasIndex("TaskID");
 
                     b.ToTable("Errors");
                 });
@@ -74,20 +70,6 @@ namespace LoggerPLC.Migrations
                     b.HasKey("TaskID");
 
                     b.ToTable("Tasks");
-                });
-
-            modelBuilder.Entity("LoggerPLC.Models.Data", b =>
-                {
-                    b.HasOne("LoggerPLC.Models.Task", "Task")
-                        .WithMany()
-                        .HasForeignKey("TaskID");
-                });
-
-            modelBuilder.Entity("LoggerPLC.Models.Error", b =>
-                {
-                    b.HasOne("LoggerPLC.Models.Task", "Task")
-                        .WithMany()
-                        .HasForeignKey("TaskID");
                 });
 #pragma warning restore 612, 618
         }
