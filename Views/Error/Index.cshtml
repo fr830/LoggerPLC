@@ -18,16 +18,16 @@
     {
         <tr>
             <td> 
-                @Html.DisplayFor(modelItem => item.TaskID)
+                @Html.DisplayFor(modelItem => item.Task.TaskName)
             </td>
             <td>
-               
+               @Html.DisplayFor(modelItem => item.Task.IpPLC)
             </td>
             <td>
-               
+               @Html.DisplayFor(modelItem => item.Task.TagName)
             </td> 
             <td>
-               
+               @Html.DisplayFor(modelItem => item.Task.TaskInterval)
             </td> 
             <td> 
                  @Html.DisplayFor(modelItem => item.Descryption)

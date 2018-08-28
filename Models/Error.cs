@@ -7,6 +7,6 @@ namespace LoggerPLC.Models
     {
         public int ErrorID { get; set; }
         public string Descryption { get; set; }
-        public int TaskID { get; set; }
+        public Task Task { get; set; }
     }
 }

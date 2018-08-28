@@ -24,9 +24,9 @@ namespace LoggerPLC.Models
                 context.Tasks.Add(t3);
 
 
-                Error e1 = new Error { TaskID = 1, Descryption = "Error 1" };
-                Error e2 = new Error { TaskID = 2, Descryption = "Error 2" };
-                Error e3 = new Error { TaskID = 3, Descryption = "Error 3" };
+                Error e1 = new Error { Task = t1, Descryption = "Error 1" };
+                Error e2 = new Error { Task = t2, Descryption = "Error 2" };
+                Error e3 = new Error { Task = t3, Descryption = "Error 3" };
 
                 context.Errors.Add(e1);
                 context.Errors.Add(e2);
@@ -37,11 +37,11 @@ namespace LoggerPLC.Models
 
                 for (int i = 0; i < 100; i++)
                 {
-                    context.Datas.Add(new Data { Date = DateTime.Now, TaskID = 1, Value = rnd.Next(-100, 100) });
-                    context.Datas.Add(new Data { Date = DateTime.Now, TaskID = 2, Value = rnd.Next(-100, 100) });
-                    context.Datas.Add(new Data { Date = DateTime.Now, TaskID = 3, Value = rnd.Next(-100, 100) });
+                    context.Datas.Add(new Data { Date = DateTime.Now, Task = t1, Value = rnd.Next(-100, 100) });
+                    context.Datas.Add(new Data { Date = DateTime.Now, Task = t2, Value = rnd.Next(-100, 100) });
+                    context.Datas.Add(new Data { Date = DateTime.Now, Task = t3, Value = rnd.Next(-100, 100) });
                 }
-                
+
                 context.SaveChanges();
             }
         }

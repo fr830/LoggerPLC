@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace LoggerPLC.Models
 {
@@ -11,13 +12,13 @@ namespace LoggerPLC.Models
             context = ctx;
         }
         public IQueryable<Data> Datas => context.Datas;
-        public IQueryable<Error> Errors => context.Errors;
+        public IQueryable<Error> Errors => context.Errors.Include(p => p.Task);
         public IQueryable<Task> Tasks => context.Tasks;
 
         public void DeleteTask(int id)
         {
-            context.Errors.RemoveRange(context.Errors.Where(p => p.TaskID == id).ToList());
-            context.Datas.RemoveRange(context.Datas.Where(p => p.TaskID == id).ToList());
+            context.Errors.RemoveRange(context.Errors.Where(p => p.Task.TaskID == id).ToList());
+            context.Datas.RemoveRange(context.Datas.Where(p => p.Task.TaskID == id).ToList());
             context.Tasks.Remove(context.Tasks.First(p => p.TaskID == id));
             context.SaveChanges();
         }

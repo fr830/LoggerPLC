@@ -23,11 +23,11 @@ namespace LoggerPLC.Controllers
         public IActionResult Draw(int id)
         {
             Highcharts Chart = new Highcharts();
-            var ddd =repository.Datas.Where(p => p.TaskID == id).ToList();
+            var ddd =repository.Datas.Where(p => p.Task.TaskID == id).ToList();
             ;
 
 
-            return View(Chart.DrawChart(repository.Datas.Where(p => p.TaskID == id).ToList(), "Tytuł wykresu", "", "Value"));
+            return View(Chart.DrawChart(repository.Datas.Where(p => p.Task.TaskID == id).ToList(), "Tytuł wykresu", "", "Value"));
         }
 
 
