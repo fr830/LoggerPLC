@@ -19,6 +19,7 @@ namespace LoggerPLC
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseUrls("192.168.*.*:5000")
                 .UseStartup<Startup>()
                 .UseStartup<Startup>().UseDefaultServiceProvider(options => options.ValidateScopes = false);
     }
