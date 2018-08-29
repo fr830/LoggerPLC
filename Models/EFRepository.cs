@@ -11,7 +11,7 @@ namespace LoggerPLC.Models
         {
             context = ctx;
         }
-        public IQueryable<Data> Datas => context.Datas;
+        public IQueryable<Data> Datas => context.Datas.Include(p => p.Task);
         public IQueryable<Error> Errors => context.Errors.Include(p => p.Task);
         public IQueryable<Task> Tasks => context.Tasks;
 

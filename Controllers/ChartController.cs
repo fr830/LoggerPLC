@@ -23,18 +23,23 @@ namespace LoggerPLC.Controllers
         public IActionResult Draw(int id)
         {
             Highcharts Chart = new Highcharts();
-            var ddd =repository.Datas.Where(p => p.Task.TaskID == id).ToList();
-            ;
-
-
-            return View(Chart.DrawChart(repository.Datas.Where(p => p.Task.TaskID == id).ToList(), "Tytuł wykresu", "", "Value"));
+            var data = repository.Datas.Where(p => p.Task.TaskID == id).ToList();
+            if (data.Count != 0)
+            {
+                string title = "Task:  " + data.First().Task.TaskName;
+                string subtitle = "IP PLC:  " + data.First().Task.IpPLC + "         Interwał:  " + data.First().Task.TaskInterval + "[s]";
+                string value = "Tag PLC:   " + data.First().Task.TagName;
+                return View(Chart.DrawChart(data, title, subtitle, value, data.First().Task.TagName));
+            }
+            else
+            {
+                return RedirectToAction("Error");
+            }
         }
-
 
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
     }
 }

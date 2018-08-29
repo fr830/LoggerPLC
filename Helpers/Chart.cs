@@ -11,7 +11,7 @@ namespace LoggerPLC.Helpers
 {
     public static class Helper
     {
-        public static Highcharts DrawChart(this Highcharts highChatrs, List<LoggerPLC.Models.Data> datas, string title, string subtitle, string titleAsseX)
+        public static Highcharts DrawChart(this Highcharts highChatrs, List<LoggerPLC.Models.Data> datas, string title, string subtitle, string titleAsseX, string seriesName)
         {
             List<LineSeriesData> myData = new List<LineSeriesData>();
             List<double> myValue = new List<double>();
@@ -66,7 +66,7 @@ namespace LoggerPLC.Helpers
             },
                 Tooltip = new Tooltip
                 {
-                    PointFormat = "{point.y} - {point.custom1} - {point.custom2}"
+                    PointFormat = "{point.y} - {point.custom1} - {point.custom2}",
                     //ValueSuffix = "°C"
                 },
                 Legend = new Legend
@@ -80,7 +80,7 @@ namespace LoggerPLC.Helpers
             {
                 new LineSeries
                 {
-                    Name = "Value1",
+                    Name = seriesName,
                     Data = myData
                 }
             }
